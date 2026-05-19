@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>广州百优皮具 - 高端真皮女包OEM/ODM源头工厂</title>
+    <meta name="keywords" content="广州真皮女包工厂,女包OEM定制,女包ODM代工,头层牛皮女包生产,高端女包定制">
+    <meta name="description" content="广州百优皮具有限公司，10年专注高端真皮女包OEM/ODM定制，央视展播品牌，体育冠军代言，免费打样，50件起订，交期稳定，承接国内外女包批量订单！">
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", "Microsoft YaHei", "PingFang SC", serif;
+        }
+        :root {
+            --gold: #D4AF37;
+            --gold-light: #E5C168;
+            --gold-dark: #b8860b;
+            --dark: #0F0F0F;
+            --dark-80: rgba(15,15,15,0.8);
+            --dark-light: #181818;
+            --dark-card: #202020;
+            --light: #F8F8F8;
+            --gray: #A0A0A0;
+            --gray-deep: #707070;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+            --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.45);
+            --transition: all 0.45s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        img {
+            max-width: 100%;
+            vertical-align: middle;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* 核心：板块出场动画 */
+        .section-animate {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .section-animate.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* 卡片逐个延迟动画 */
+        .factory-item, .product-item, .advantage-item {
+            transition-delay: calc(var(--item-index) * 0.15s);
+        }
+
+        /* 导航栏 - 高级质感 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--dark-80);
+            backdrop-filter: blur(16px);
+            z-index: 999;
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+            transition: var(--transition);
+        }
+        .navbar.scrolled {
+            padding: 14px 0;
+            background: rgba(8,8,8,0.95);
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 1.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo span {
+            color: var(--light);
+            font-size: 18px;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+        .hamburger {
+            display: none;
+            font-size: 26px;
+            color: var(--gold);
+            cursor: pointer;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 38px;
+        }
+        .nav-menu a {
+            font-size: 16px;
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition);
+            opacity: 0.85;
+        }
+        .nav-menu a:hover {
+            color: var(--gold-light);
+            opacity: 1;
+            transform: translateY(-1px);
+        }
+        .nav-menu a::after {
+            content: "";
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            transition: var(--transition);
+        }
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        /* 首屏 Banner - 超高级 */
+        .banner {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(10,10,10,0.85), rgba(10,10,10,0.85)), 
+                        url("https://free.picui.cn/free/2026/05/19/6a0bd32a81ca2.jpg") center/cover no-repeat fixed;
+            padding: 120px 20px 80px;
+            position: relative;
+        }
+        .banner-content {
+            max-width: 860px;
+            animation: fadeIn 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .banner-content h1 {
+            font-size: 60px;
+            line-height: 1.2;
+            margin-bottom: 28px;
+            color: var(--gold);
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+        .banner-content p {
+            font-size: 20px;
+            margin-bottom: 48px;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.8;
+        }
+        .btn {
+            display: inline-block;
+            padding: 16px 44px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: #111;
+            font-weight: 600;
+            font-size: 16px;
+            border-radius: 8px;
+            transition: var(--transition);
+            box-shadow: 0 6px 18px rgba(212, 175, 55, 0.35);
+            border: none;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+        }
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 26px rgba(212, 175, 55, 0.45);
+        }
+
+        /* 标题 - 高级 */
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+            padding-top: 90px;
+        }
+        .section-title h2 {
+            font-size: 42px;
+            color: var(--gold);
+            position: relative;
+            display: inline-block;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        .section-title h2::after {
+            content: "";
+            position: absolute;
+            bottom: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 110px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+        }
+
+        /* 企业简介 - 轻奢质感 */
+        .about {
+            padding: 110px 0;
+            background-color: var(--dark-light);
+        }
+        .about-content {
+            background-color: var(--dark-card);
+            padding: 60px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(212, 175, 55, 0.08);
+        }
+        .about-content:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+        .about-content p {
+            margin-bottom: 26px;
+            text-indent: 2em;
+            font-size: 17px;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.9;
+        }
+
+        /* 工厂实景 - 高级卡片 */
+        .factory {
+            padding: 110px 0;
+        }
+        .factory-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 36px;
+        }
+        .factory-item {
+            background-color: var(--dark-light);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(255,255,255,0.04);
+        }
+        .factory-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        .factory-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: 0.6s ease;
+        }
+        .factory-item:hover .factory-img {
+            transform: scale(1.08);
+        }
+        .factory-info {
+            padding: 28px;
+            text-align: center;
+        }
+        .factory-info h4 {
+            color: var(--gold-light);
+            margin-bottom: 10px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .factory-info p {
+            color: var(--gray);
+            font-size: 15px;
+        }
+
+        /* 产品展示 - 轻奢质感（6款产品） */
+        .products {
+            padding: 110px 0;
+            background-color: var(--dark-light);
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 36px;
+        }
+        .product-item {
+            background-color: var(--dark-card);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(212, 175, 55, 0.06);
+        }
+        .product-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        .product-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: 0.6s ease;
+        }
+        .product-item:hover .product-img {
+            transform: scale(1.08);
+        }
+        .product-info {
+            padding: 28px;
+        }
+        .product-info h4 {
+            color: var(--gold-light);
+            margin-bottom: 12px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .product-info p {
+            color: var(--gray);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* 核心优势 - 高级 */
+        .advantage {
+            padding: 110px 0;
+        }
+        .advantage-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        .advantage-item {
+            background-color: var(--dark-light);
+            padding: 36px;
+            border-radius: 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 22px;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255,255,255,0.04);
+        }
+        .advantage-item:hover {
+            transform: translateY(-6px);
+            background-color: var(--dark-card);
+        }
+        .advantage-item i {
+            color: var(--gold);
+            font-size: 36px;
+            margin-top: 6px;
+            transition: var(--transition);
+        }
+        .advantage-item:hover i {
+            color: var(--gold-light);
+            transform: scale(1.12);
+        }
+        .advantage-item h4 {
+            color: var(--light);
+            margin-bottom: 10px;
+            font-size: 19px;
+            font-weight: 600;
+        }
+        .advantage-item p {
+            color: var(--gray);
+            font-size: 15px;
+            line-height: 1.75;
+        }
+
+        /* 联系我们 - 移除表单，仅保留联系方式 */
+        .contact {
+            padding: 110px 0;
+            background-color: var(--dark-light);
+        }
+        .contact-content {
+            background-color: var(--dark-card);
+            padding: 60px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(212, 175, 55, 0.08);
+        }
+        .contact-content h3 {
+            color: var(--gold-light);
+            margin-bottom: 36px;
+            font-size: 28px;
+            font-weight: 600;
+        }
+        .contact-info {
+            margin-bottom: 44px;
+            line-height: 2.3;
+            font-size: 17px;
+        }
+        .contact-info span {
+            color: var(--gold-light);
+            font-weight: 600;
+        }
+
+        /* 页脚 */
+        .footer {
+            padding: 48px 0;
+            text-align: center;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            background-color: var(--dark);
+        }
+        .footer p {
+            color: var(--gray-deep);
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        /* 回到顶部按钮 */
+        .back-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            color: #111;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 99;
+            box-shadow: var(--shadow);
+        }
+        .back-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-top:hover {
+            background: var(--gold-light);
+            transform: translateY(-4px);
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 992px) {
+            .factory-grid, .product-grid { grid-template-columns: repeat(2, 1fr); }
+            .advantage-list { grid-template-columns: 1fr; }
+            .banner-content h1 { font-size: 46px; }
+            .section-title h2 { font-size: 36px; }
+        }
+        @media (max-width: 768px) {
+            .hamburger { display: block; }
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background-color: var(--dark-card);
+                flex-direction: column;
+                padding: 40px 30px;
+                gap: 28px;
+                transition: var(--transition);
+                box-shadow: -6px 0 20px rgba(0,0,0,0.3);
+            }
+            .nav-menu.active { right: 0; }
+            .factory-grid, .product-grid { grid-template-columns: 1fr; }
+            .banner-content h1 { font-size: 38px; }
+            .about-content, .contact-content { padding: 40px 28px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 导航 -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="logo">BAIYOU <span>百优皮具</span></div>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="#home">首页</a>
+                <a href="#about">企业简介</a>
+                <a href="#factory">工厂实景</a>
+                <a href="#products">产品展示</a>
+                <a href="#advantage">核心优势</a>
+                <a href="#contact">联系我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首屏 -->
+    <section class="banner" id="home">
+        <div class="banner-content">
+            <h1>广州百优皮具有限公司</h1>
+            <p>十年匠心 · 央视背书 · 冠军代言 · 专业OEM/ODM定制<br>专注高端真皮女包生产，承接大小批量订单，免费打样，交期稳定</p>
+            <a href="#contact" class="btn">立即洽谈合作</a>
+        </div>
+    </section>
+
+    <!-- 企业简介（带出场动画） -->
+    <section class="about section-animate" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>企业简介</h2>
+            </div>
+            <div class="about-content">
+                <p>广州百优皮具有限公司成立于2012年，是一家集设计、生产、销售于一体的专业真皮女包源头工厂，厂房面积4500㎡，拥有资深设计团队和熟练生产工人150+，月产能可达3000+件。</p>
+                <p>公司专注高端真皮女包OEM/ODM定制服务，主打头层牛皮、羊皮等高品质材质女包，产品涵盖菜篮子包、腋下包、托特包、水桶包等全品类，常年为国内外知名品牌、电商平台、直播机构提供稳定供货。</p>
+                <p>百优皮具始终坚持“品质为先、客户至上”的经营理念，先后签约体育冠军代言、登陆CCTV7/17广告，凭借过硬的品质和完善的服务赢得客户一致好评，产品远销欧美、东南亚、中东等国家和地区。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 工厂实景（带出场动画+卡片延迟） -->
+    <section class="factory section-animate" id="factory">
+        <div class="container">
+            <div class="section-title">
+                <h2>工厂实景</h2>
+            </div>
+            <div class="factory-grid">
+                <div class="factory-item" style="--item-index: 1">
+                    <img src="https://free.picui.cn/free/2026/05/19/6a0bd2f4053ed.jpg" alt="厂房外景" class="factory-img">
+                    <div class="factory-info">
+                        <h4>厂房外景</h4>
+                        <p>4500㎡标准化厂房，独立园区，交通便利</p>
+                    </div>
+                </div>
+                <div class="factory-item" style="--item-index: 2">
+                    <img src="https://free.picui.cn/free/2026/05/19/6a0bd2f404bc2.jpg" alt="生产车间" class="factory-img">
+                    <div class="factory-info">
+                        <h4>生产车间</h4>
+                        <p>整洁规范生产线，高效产能，品质全程可控</p>
+                    </div>
+                </div>
+                <div class="factory-item" style="--item-index: 3">
+                    <img src="https://free.picui.cn/free/2026/05/19/6a0bd2f40604b.jpg" alt="板房设计" class="factory-img">
+                    <div class="factory-info">
+                        <h4>板房设计室</h4>
+                        <p>资深版师团队，来图来样精准打版，7天快速出样</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品展示（6款产品+出场动画+卡片延迟） -->
+    <section class="products section-animate" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>主营产品系列</h2>
+            </div>
+            <div class="product-grid">
+                <!-- 第1款：编织链条菜篮子包 -->
+                <div class="product-item" style="--item-index: 1">
+                    <img src="https://free.picui.cn/free/2026/05/19/6a0bd32a7c56a.jpg" alt="编织链条菜篮子包" class="product-img">
+                    <div class="product-info">
+                        <h4>编织链条菜篮子包</h4>
+                        <p>头层牛皮编织，轻奢百搭，支持颜色/五金定制，小单可接</p>
+                    </div>
+                </div>
+                <!-- 第2款：hub大容量女包 -->
+                <div class="product-item" style="--item-index: 2">
+                    <img src="https://free.picui.cn/free/2026/05/19/6a0bd32c10b30.jpg" alt="hub大容量女包" class="product-img">
+                    <div class="product-info">
+                        <h4>hub大容量女包</h4>
+                        <p>质感头层牛皮，通勤实用，可加印LOGO，批量价更优</p>
+                    </div>
+                </div>
+                <!-- 第3款：轻奢腋下包 -->
+                <div class="product-item" style="--item-index: 3">
+                    <img src="https://free.picui.cn/free/2026/05/19/6a0bd32a81c90.jpg" alt="轻奢腋下包" class="product-img">
+                    <div class="product-info">
+                        <h4>轻奢腋下包</h4>
+                        <p>头层牛皮材质，潮流爆款，支持定制，出货周期7-15天</p>
+                    </div>
+                </div>
+                <!-- 第4款：时尚鳄鱼纹女包 -->
+                <div class="product-item" style="--item-index: 4">
+                    <img src="https://free.picui.cn/free/2026/05/19/6a0bd32a7e08e.jpg" alt="时尚鳄鱼纹女包" class="product-img">
+                    <div class="product-info">
+                        <h4>时尚鳄鱼纹女包</h4>
+                        <p>压纹真皮，造型高级，直播热销款，支持一件代发</p>
+                    </div>
+                </div>
+                <!-- 第5款：轻奢衍缝收纳包 -->
+                <div class="product-item" style="--item-index: 5">
+                    <img src="https://free.picui.cn/free/2026/05/19/6a0bd32c458a0.jpg" alt="凯莉包" class="product-img">
+                    <div class="product-info">
+                        <h4>凯莉包</h4>
+                        <p>精致小巧，做工精细，礼品单优选，出货稳定</p>
+                    </div>
+                </div>
+                <!-- 第6款：简约圆筒水桶包 -->
+                <div class="product-item" style="--item-index: 6">
+                    <img src="https://free.picui.cn/free/2026/05/19/6a0bd32a84e0a.jpg" alt="简约圆筒水桶包" class="product-img">
+                    <div class="product-info">
+                        <h4>简约圆筒水桶包</h4>
+                        <p>经典版型，头层真皮，长期供货，可定制尺寸</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心优势（带出场动画+卡片延迟） -->
+    <section class="advantage section-animate" id="advantage">
+        <div class="container">
+            <div class="section-title">
+                <h2>工厂核心优势</h2>
+            </div>
+            <div class="advantage-list">
+                <div class="advantage-item" style="--item-index: 1">
+                    <i class="fas fa-tv"></i>
+                    <div>
+                        <h4>权威背书</h4>
+                        <p>央视展播品牌，体育冠军代言，品牌公信力有保障</p>
+                    </div>
+                </div>
+                <div class="advantage-item" style="--item-index: 2">
+                    <i class="fas fa-leather"></i>
+                    <div>
+                        <h4>高端材质保障</h4>
+                        <p>精选头层牛皮/羊皮，拒绝劣质仿皮，材质可送检</p>
+                    </div>
+                </div>
+                <div class="advantage-item" style="--item-index: 3">
+                    <i class="fas fa-handshake"></i>
+                    <div>
+                        <h4>灵活接单模式</h4>
+                        <p>50件起订，支持中小批量，满足品牌定制、电商供货等需求</p>
+                    </div>
+                </div>
+                <div class="advantage-item" style="--item-index: 4">
+                    <i class="fas fa-paint-brush"></i>
+                    <div>
+                        <h4>免费打样设计</h4>
+                        <p>来图/来样免费打样，设计团队1对1对接，7天出样</p>
+                    </div>
+                </div>
+                <div class="advantage-item" style="--item-index: 5">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h4>交期稳定可控</h4>
+                        <p>标准化生产流程，批量订单15-30天交货，紧急订单可加急</p>
+                    </div>
+                </div>
+                <div class="advantage-item" style="--item-index: 6">
+                    <i class="fas fa-certificate"></i>
+                    <div>
+                        <h4>全流程品控</h4>
+                        <p>每道工序严格质检，不合格率低于0.5%，确保成品品质</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们（移除表单，仅保留联系方式+出场动画） -->
+    <section class="contact section-animate" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>联系我们</h2>
+            </div>
+            <div class="contact-content">
+                <h3>欢迎洽谈合作</h3>
+                <div class="contact-info">
+                    <p>工厂地址：<span>广州市白云区长红村双和工业区二路5号</span></p>
+                    <p>业务热线：<span>18148995256（微信同号）</span></p>
+                    <p>合作模式：<span>来图定制 / 来样复刻 / 贴牌代工 / 批量生产</span></p>
+                </div>
+                <a href="tel:138XXXX8888" class="btn">立即拨打电话</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 广州百优皮具有限公司 版权所有 | 粤ICP备XXXXXXX号</p>
+            <p>本网站所有产品均为自主生产，支持定制，盗图必究</p>
+        </div>
+    </footer>
+
+    <!-- 回到顶部 -->
+    <div class="back-top" id="backTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- JS（包含动画触发+原有功能） -->
+    <script>
+        // 导航滚动效果
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // 汉堡菜单
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // 导航点击关闭菜单
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // 回到顶部
+        const backTop = document.getElementById('backTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backTop.classList.add('show');
+            } else {
+                backTop.classList.remove('show');
+            }
+        });
+        backTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // 核心：板块出场动画触发
+        const animateSections = document.querySelectorAll('.section-animate');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        animateSections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
